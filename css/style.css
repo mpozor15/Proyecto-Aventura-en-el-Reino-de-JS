@@ -1,0 +1,98 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables de la Web */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Lora:wght@400;700&display=swap');
+
+:root {
+  /* --- Paleta de Colores --- */
+  --color-fondo-principal: #D1B48C;
+  --color-fondo-secundario: #5A4224;
+  --color-acento-boton: #D9C934;
+  --color-acento-boton-hover: #b5a413;
+  --color-texto-primario: #2B1D0E;
+  --color-texto-secundario: #E9E2E2;
+
+  /* --- Tipografías --- */
+  --fuente-web: 'Cinzel Decorative', cursive;
+  --fuente-cuerpo: 'Lora', serif;
+}
+
+body{
+    font-family: var(--fuente-web);
+    color: var(--color-texto-primario);
+}
+
+/* Primera escena */
+
+.estadisticas .menu1{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-fondo-principal);
+}
+
+.estadisticas .menu1 h1{
+    margin: 12px;
+    font-family: var(--fuente-web);
+}
+
+.estadisticas .menu1 img{
+    width: 300px;
+}
+
+.estadisticas .stats-p{
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+    background-color: var(--color-fondo-secundario);
+}
+
+.estadisticas .stats{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+    width: 50%;
+}
+
+.estadisticas .stats .caja{
+    background-color: var(--color-fondo-principal);
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+}
+
+.estadisticas .boton{
+    background-color: var(--color-fondo-secundario);
+    text-align: center;
+}
+
+.estadisticas{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.boton{
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding: 24px;
+}
+
+.boton button{
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--color-acento-boton);
+    font-weight: bold;
+    font-family: var(--fuente-web);
+}
+
+.boton button:hover{
+    background-color: var(--color-acento-boton-hover);
+}
+
