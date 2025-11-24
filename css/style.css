@@ -27,7 +27,7 @@ body{
     color: var(--color-texto-primario);
 }
 
-/* Primera escena */
+/* Primera Escena */
 
 .estadisticas .menu1{
     display: flex;
@@ -41,7 +41,7 @@ body{
 }
 
 .estadisticas .menu1 img{
-    width: 300px;
+    width: 250px;
 }
 
 .estadisticas .stats-p{
@@ -90,9 +90,87 @@ body{
     background-color: var(--color-acento-boton);
     font-weight: bold;
     font-family: var(--fuente-web);
+    cursor: pointer;
 }
 
 .boton button:hover{
     background-color: var(--color-acento-boton-hover);
 }
 
+/* Segunda Escena - Mercado */
+
+.mercado .menu2{
+    background-color: var(--color-fondo-principal);
+    padding: 8px;
+    padding-bottom: 24px;
+}
+
+.mercado .articulos{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    background-color: var(--color-fondo-secundario);
+    padding: 20px;
+    text-align: center;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.mercado .articulos .caja2{
+    background-color: var(--color-texto-secundario);
+    border-radius: 24px;
+    padding: 14px;
+    text-align: center;
+    border: 2px solid var(--color-texto-primario);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.mercado .articulos .caja2 img{
+    width: 28vh;
+}
+
+.mercado .boton{
+    background-color: var(--color-fondo-principal);
+}
+
+.mercado .articulos .caja2 button{
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--color-acento-boton);
+    font-weight: bold;
+    font-family: var(--fuente-web);
+    cursor: pointer;
+}
+
+.mercado .articulos .caja2 button:hover{
+    background-color: var(--color-acento-boton-hover);
+}
+
+.mercado{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.compras-p{
+    background-color: var(--color-texto-secundario);
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+}
+
+.compras-p .compras{
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-fondo-secundario);
+    gap: 12px;
+    padding: 8px;
+    flex-wrap: wrap;
+    max-width: 700px;
+}
+
+.compras-p .compras .obj{
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-fondo-principal);
+}
