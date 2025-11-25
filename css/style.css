@@ -112,7 +112,7 @@ body{
     background-color: var(--color-fondo-secundario);
     padding: 20px;
     text-align: center;
-    height: 400px;
+    height: 60vh;
     overflow-y: auto;
 }
 
@@ -152,6 +152,8 @@ body{
     height: 100vh;
 }
 
+/* Articulos comprados */
+
 .compras-p{
     background-color: var(--color-texto-secundario);
     display: flex;
@@ -172,5 +174,51 @@ body{
 .compras-p .compras .obj{
     width: 80px;
     height: 80px;
+    background-color: var(--color-fondo-principal);
+}
+
+/* Tercera escena - Estadisticas actualizadas */
+
+
+
+/* Cuarta escena - Enemigos */
+
+.enemigos{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.enemigos .menu3{
+    background-color: var(--color-fondo-principal);
+    padding: 8px;
+    padding-bottom: 24px;
+}
+
+.enemigos .list-e{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    background-color: var(--color-fondo-secundario);
+    padding: 20px;
+    text-align: center;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.enemigos .list-e .caja3{
+    background-color: var(--color-texto-secundario);
+    border-radius: 24px;
+    padding: 14px;
+    text-align: center;
+    border: 2px solid var(--color-texto-primario);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.enemigos .list-e .caja3 img{
+    width: 28vh;
+}
+
+.enemigos .boton{
     background-color: var(--color-fondo-principal);
 }
