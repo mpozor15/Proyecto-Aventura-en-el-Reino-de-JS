@@ -222,3 +222,76 @@ body{
 .enemigos .boton{
     background-color: var(--color-fondo-principal);
 }
+
+/* Quinta escena - Combates */
+
+.batallas{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.batallas .menu4{
+    background-color: var(--color-fondo-principal);
+    padding: 8px;
+    padding-bottom: 24px;
+}
+
+.batallas .boton{
+    background-color: var(--color-fondo-secundario);
+}
+
+.batallas .combate img{
+    width: 20vw;
+}
+
+.batallas .combate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-fondo-secundario);
+}
+
+.batallas .respuesta{
+    background-color: var(--color-fondo-secundario);
+    color: var(--color-texto-secundario);
+    text-align: center;
+}
+
+/* Escena Final */
+
+.final{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.final .menu5{
+    background-color: var(--color-fondo-principal);
+    padding: 8px;
+    padding-bottom: 24px;
+}
+
+.final .boton{
+    background-color: var(--color-fondo-secundario);
+}
+
+
+
+/* Restructuracion de imagenes */
+
+@media (max-width: 800px) {
+    .estadisticas .menu1 img{
+        width: 50vw;
+    }
+
+    .batallas .combate img{
+        width: 40vw;
+    }
+
+    .enemigos .list-e{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+}
