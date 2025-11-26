@@ -52,7 +52,7 @@ body{
 }
 
 .estadisticas .menu1 img{
-    width: 250px;
+    width: 15vw;
 }
 
 .estadisticas .stats-p{
@@ -186,10 +186,6 @@ body{
     background-color: var(--color-fondo-principal);
 }
 
-/* Tercera escena - Estadisticas actualizadas */
-
-
-
 /* Cuarta escena - Enemigos */
 
 .enemigos{
@@ -282,13 +278,11 @@ body{
     background-color: var(--color-fondo-secundario);
 }
 
-
-
 /* Restructuracion de imagenes */
 
 @media (max-width: 800px) {
     .estadisticas .menu1 img{
-        width: 50vw;
+        width: 30vw;
     }
 
     .batallas .combate img{
@@ -299,5 +293,9 @@ body{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-    
+    .compras-p .compras .obj{
+        width: 40px;
+        height: 40px;
+        background-color: var(--color-fondo-principal);
+    }
 }

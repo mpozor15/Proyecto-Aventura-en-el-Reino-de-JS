@@ -11,7 +11,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. De Mercado -> Enemigos
+    // 2. De Mercado -> Estadisticas Actualizado
+    const btna = document.getElementById('btn-a');
+    if(btna) {
+        btna.addEventListener('click', () => {
+            showScene('pantalla-estadisticas-a');
+        });
+    }
+
+    // 3. De Estadisticas Actualizado -> Enemigos
     const btnEnemigos = document.getElementById('btn-enemigos');
     if(btnEnemigos) {
         btnEnemigos.addEventListener('click', () => {
@@ -20,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. De Enemigos -> Batalla
+    // 4. De Enemigos -> Batalla
     const btnBatalla = document.getElementById('btn-batallas');
     if(btnBatalla) {
         btnBatalla.addEventListener('click', () => {
@@ -29,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. De Batalla -> Final
+    // 5. De Batalla -> Final
     const btnFinal = document.getElementById('btn-final');
     if(btnFinal) {
         btnFinal.addEventListener('click', () => {
@@ -37,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. De Final -> Reiniciar (Vuelta a Stats)
+    // 6. De Final -> Reiniciar (Vuelta a Stats)
     const btnReiniciar = document.getElementById('btn-reiniciar');
     if(btnReiniciar) {
         btnReiniciar.addEventListener('click', () => {
