@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aventura</title>
     <link rel="stylesheet" href="css/style.css">
+    <script defer type="module" src="src/main.js"></script>
 </head>
 
 <body>
@@ -13,7 +14,7 @@
     <main class="padre">
 
         <!-- Estadisticas -->
-        <section class="estadisticas">
+        <section id="pantalla-estadisticas" class="estadisticas scene active">
 
             <article class="menu1">
                 <img src="assets/prota.png" />
@@ -30,13 +31,14 @@
             </div>
 
             <article class="boton">
-                <button>Continuar</button>
+                <button id="btn-mercado" >Continuar</button>
             </article>
 
         </section>
 
+
         <!-- Mercado -->
-        <section class="mercado">
+        <section id="pantalla-mercado" class="mercado scene">
 
             <article class="menu2">
                 <h1>Mercado negro</h1>
@@ -88,7 +90,7 @@
             </article>
 
             <article class="boton">
-                <button>Comprar</button>
+                <button id="btn-enemigos" >Comprar</button>
             </article>
 
             <div class="compras-p">
@@ -106,7 +108,7 @@
         </section>
 
         <!-- Enemigos -->
-        <section class="enemigos">
+        <section id="pantalla-enemigos" class="enemigos scene">
 
             <article class="menu3">
                 <h1>Enemigos</h1>
@@ -136,26 +138,26 @@
             </article>
 
             <article class="boton">
-                <button>Continuar</button>
+                <button id="btn-batallas" >Continuar</button>
             </article>
 
         </section>
 
         <!-- Batallas -->
-        <section class="batallas">
+        <section id="pantalla-batallas" class="batallas scene">
 
             <article class="menu4">
                 <h1>Combates</h1>
             </article>
 
-            <article class="combate" >
-                <div class="persona" >
+            <article class="combate">
+                <div class="persona">
                     <img src="assets/prota.png" />
                 </div>
                 <div>
                     VS
                 </div>
-                <div class="evil" >
+                <div class="evil">
                     <img src="assets/goblin.png" />
                 </div>
             </article>
@@ -166,7 +168,7 @@
             </article>
 
             <article class="boton">
-                <button>Continuar</button>
+                <button id="btn-final" >Continuar</button>
             </article>
 
             <div class="compras-p">
@@ -183,18 +185,18 @@
         </section>
 
         <!-- Final -->
-        <section class="final">
+        <section id="pantalla-final" class="final scene">
 
             <article class="menu5">
                 <h1>Resultado Final</h1>
             </article>
 
-            <article class="resultado" >
-                
+            <article class="resultado">
+
             </article>
 
             <article class="boton">
-                <button>Reiniciar</button>
+                <button id="btn-reiniciar" >Reiniciar</button>
             </article>
 
             <div class="compras-p">
