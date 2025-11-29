@@ -283,6 +283,35 @@ body{
     background-color: var(--color-fondo-secundario);
 }
 
+.final .resultado{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-fondo-secundario);
+    color: var(--color-texto-secundario);
+}
+
+.final .resultado .titulo-f{
+    text-align: center;
+}
+
+/* Objeto Comprado Y Retirado */
+
+.mercado .articulos .caja2.comprado {
+    background-color: #fcf3cf;
+    border: 2px solid #f1c40f;
+    transition: all 0.3s ease;
+}
+
+.mercado .articulos .caja2.retirado {
+    background-color: var(--color-texto-secundario);
+    border: 2px solid var(--color-texto-primario);
+    transition: all 0.3s ease;
+}
+
+
 /* Restructuracion de imagenes */
 
 @media (max-width: 800px) {
@@ -303,18 +332,4 @@ body{
         height: 40px;
         background-color: var(--color-fondo-principal);
     }
-}
-
-/* Objeto Comprado Y Retirado */
-
-.mercado .articulos .caja2.comprado {
-    background-color: #fcf3cf;
-    border: 2px solid #f1c40f;
-    transition: all 0.3s ease;
-}
-
-.mercado .articulos .caja2.retirado {
-    background-color: var(--color-texto-secundario);
-    border: 2px solid var(--color-texto-primario);
-    transition: all 0.3s ease;
 }
