@@ -119,7 +119,7 @@ function prepararBatalla() {
         botonTexto = "Ver Resultado Final";
     }
 
-    // --- CAMBIO: Solo mostramos el título y los puntos ---
+    // Solo mostramos el título y los puntos 
     cajaRespuesta.innerHTML = `
         <h2 style="font-size: 1.5rem; margin: 10px 0; color: ${resultado.jugadorGana ? '#D9C934' : 'red'}">${mensajeTitulo}</h2>
         <p style="font-size: 1.1rem; margin: 5px 0;">Puntos ganados: <strong>${resultado.puntos}</strong></p>
