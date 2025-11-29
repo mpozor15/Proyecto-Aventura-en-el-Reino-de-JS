@@ -304,3 +304,17 @@ body{
         background-color: var(--color-fondo-principal);
     }
 }
+
+/* Objeto Comprado Y Retirado */
+
+.mercado .articulos .caja2.comprado {
+    background-color: #fcf3cf;
+    border: 2px solid #f1c40f;
+    transition: all 0.3s ease;
+}
+
+.mercado .articulos .caja2.retirado {
+    background-color: var(--color-texto-secundario);
+    border: 2px solid var(--color-texto-primario);
+    transition: all 0.3s ease;
+}
