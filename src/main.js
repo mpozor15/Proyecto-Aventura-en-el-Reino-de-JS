@@ -2,13 +2,13 @@ import { showScene } from './utils.js';
 import { Jugador } from './clases/jugador.js';
 import { renderizarMercado } from './modulos/mercado.js';
 import { PUNTUACION_BASE, VIDA_MAXIMA } from './constants.js';
-import { renderizarEnemigos, listaEnemigos } from './modulos/enemigos.js'; // Importamos la lista
+import { renderizarEnemigos, listaEnemigos } from './modulos/enemigos.js';
 import { simularCombate } from './modulos/batalla.js';
-import { obtenerRango } from './modulos/ranking.js'; // Importamos el ranking
+import { obtenerRango } from './modulos/ranking.js';
 
 // --- ESTADO GLOBAL ---
 const jugador = new Jugador("Cazador", "assets/prota.png", PUNTUACION_BASE, VIDA_MAXIMA);
-let indiceEnemigoActual = 0; // <--- NUEVO: Empezamos por el enemigo 0 (El primero)
+let indiceEnemigoActual = 0; // Empezamos por el enemigo 0 (El primero)
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -189,14 +189,12 @@ function cargarMercado() {
         if (jugador.tieneObjeto(producto.nombre)) {
             jugador.eliminarDelInventario(producto.nombre);
             botonHTML.textContent = "Añadir";
-            botonHTML.style.backgroundColor = ""; 
             cajaHTML.classList.remove('comprado');
             cajaHTML.classList.add('retirado');
         } else {
             const nuevoItem = producto.clonar();
             jugador.agregarInventario(nuevoItem);
             botonHTML.textContent = "Retirar";
-            botonHTML.style.backgroundColor = "salmon"; 
             cajaHTML.classList.add('comprado');
             cajaHTML.classList.remove('retirado');
         }

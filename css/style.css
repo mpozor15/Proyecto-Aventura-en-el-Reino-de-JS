@@ -300,8 +300,8 @@ body{
 /* Objeto Comprado Y Retirado */
 
 .mercado .articulos .caja2.comprado {
-    background-color: #fcf3cf;
-    border: 2px solid #f1c40f;
+    background-color: #ffeeaa;
+    border: 2px solid #deb200;
     transition: all 0.3s ease;
 }
 
@@ -309,6 +309,14 @@ body{
     background-color: var(--color-texto-secundario);
     border: 2px solid var(--color-texto-primario);
     transition: all 0.3s ease;
+}
+
+.mercado .articulos .caja2.comprado button{
+    background-color: rgb(250, 128, 114);
+}
+
+.mercado .articulos .caja2.comprado button:hover{
+    background-color: rgb(191, 81, 69);
 }
 
 
@@ -333,3 +341,6 @@ body{
         background-color: var(--color-fondo-principal);
     }
 }
+
+
+/* Animaciones Varias */

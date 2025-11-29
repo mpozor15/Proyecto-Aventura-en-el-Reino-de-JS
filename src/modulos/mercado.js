@@ -41,10 +41,8 @@ export function renderizarMercado(contenedor, itemsJugador, callbackCompra) {
         
         if (yaLoTiene) {
             btn.textContent = "Retirar";
-            btn.style.backgroundColor = "salmon"; 
         } else {
             btn.textContent = "Añadir";
-            btn.style.backgroundColor = ""; 
         }
         
         btn.addEventListener('click', () => {
