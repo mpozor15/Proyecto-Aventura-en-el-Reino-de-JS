@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -6,18 +6,23 @@
 
 /* Cambio de Escenas */
 
-.scene{
+.scene {
     display: none;
 }
 
-.scene.active{
+.scene.active {
     display: flex;
     animation: cambioescena 1s ease-in-out;
 }
 
 @keyframes cambioescena {
-    from { opacity: 0.05; }
-    to { opacity: 1; }
+    from {
+        opacity: 0.05;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Variables de la Web */
@@ -25,49 +30,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Lora:wght@400;700&display=swap');
 
 :root {
-  /* --- Paleta de Colores --- */
-  --color-fondo-principal: #D1B48C;
-  --color-fondo-secundario: #5A4224;
-  --color-acento-boton: #D9C934;
-  --color-acento-boton-hover: #b5a413;
-  --color-texto-primario: #2B1D0E;
-  --color-texto-secundario: #E9E2E2;
+    /* --- Paleta de Colores --- */
+    --color-fondo-principal: #D1B48C;
+    --color-fondo-secundario: #5A4224;
+    --color-acento-boton: #D9C934;
+    --color-acento-boton-hover: #b5a413;
+    --color-texto-primario: #2B1D0E;
+    --color-texto-secundario: #E9E2E2;
 
-  /* --- Tipografías --- */
-  --fuente-web: 'Cinzel Decorative', cursive;
-  --fuente-cuerpo: 'Lora', serif;
+    /* --- Tipografías --- */
+    --fuente-web: 'Cinzel Decorative', cursive;
+    --fuente-cuerpo: 'Lora', serif;
 }
 
-body{
+body {
     font-family: var(--fuente-web);
     color: var(--color-texto-primario);
 }
 
 /* Primera Escena */
 
-.estadisticas .menu1{
+.estadisticas .menu1 {
     display: flex;
     justify-content: space-between;
     background-color: var(--color-fondo-principal);
 }
 
-.estadisticas .menu1 h1{
+.estadisticas .menu1 h1 {
     margin: 12px;
     font-family: var(--fuente-web);
 }
 
-.estadisticas .menu1 img{
+.estadisticas .menu1 img {
     width: 15vw;
 }
 
-.estadisticas .stats-p{
+.estadisticas .stats-p {
     display: flex;
     justify-content: center;
     padding: 12px;
     background-color: var(--color-fondo-secundario);
 }
 
-.estadisticas .stats{
+.estadisticas .stats {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5rem;
@@ -75,31 +80,31 @@ body{
     width: 50%;
 }
 
-.estadisticas .stats .caja{
+.estadisticas .stats .caja {
     background-color: var(--color-fondo-principal);
     padding-top: 6vh;
     padding-bottom: 6vh;
 }
 
-.estadisticas .boton{
+.estadisticas .boton {
     background-color: var(--color-fondo-secundario);
     text-align: center;
 }
 
-.estadisticas{
+.estadisticas {
     flex-direction: column;
     height: 100vh;
 }
 
-.boton{
-    flex-grow: 1; 
+.boton {
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: end;
     padding: 24px;
 }
 
-.boton button{
+.boton button {
     padding: 8px;
     border-radius: 8px;
     background-color: var(--color-acento-boton);
@@ -108,19 +113,19 @@ body{
     cursor: pointer;
 }
 
-.boton button:hover{
+.boton button:hover {
     background-color: var(--color-acento-boton-hover);
 }
 
 /* Segunda Escena - Mercado */
 
-.mercado .menu2{
+.mercado .menu2 {
     background-color: var(--color-fondo-principal);
     padding: 8px;
     padding-bottom: 24px;
 }
 
-.mercado .articulos{
+.mercado .articulos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
@@ -131,24 +136,24 @@ body{
     overflow-y: auto;
 }
 
-.mercado .articulos .caja2{
+.mercado .articulos .caja2 {
     background-color: var(--color-texto-secundario);
     border-radius: 24px;
     padding: 14px;
     text-align: center;
     border: 2px solid var(--color-texto-primario);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.mercado .articulos .caja2 img{
+.mercado .articulos .caja2 img {
     width: 28vh;
 }
 
-.mercado .boton{
+.mercado .boton {
     background-color: var(--color-fondo-principal);
 }
 
-.mercado .articulos .caja2 button{
+.mercado .articulos .caja2 button {
     padding: 8px;
     border-radius: 8px;
     background-color: var(--color-acento-boton);
@@ -157,25 +162,25 @@ body{
     cursor: pointer;
 }
 
-.mercado .articulos .caja2 button:hover{
+.mercado .articulos .caja2 button:hover {
     background-color: var(--color-acento-boton-hover);
 }
 
-.mercado{
+.mercado {
     flex-direction: column;
     height: 100vh;
 }
 
 /* Articulos comprados Y animaciones */
 
-.compras-p{
+.compras-p {
     background-color: var(--color-texto-secundario);
     display: flex;
     justify-content: center;
     padding: 12px;
 }
 
-.compras-p .compras{
+.compras-p .compras {
     display: flex;
     justify-content: center;
     background-color: var(--color-fondo-secundario);
@@ -185,7 +190,7 @@ body{
     max-width: 700px;
 }
 
-.compras-p .compras .obj{
+.compras-p .compras .obj {
     width: 80px;
     height: 80px;
     background-color: var(--color-fondo-principal);
@@ -194,25 +199,25 @@ body{
 
 .compras-p .compras .obj:hover {
     transform: translateY(-10px) rotate(10deg) scale(1.1);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     z-index: 10;
 }
 
 /* Cuarta escena - Enemigos */
 
-.enemigos{
+.enemigos {
     flex-direction: column;
     height: 100vh;
 }
 
-.enemigos .menu3{
+.enemigos .menu3 {
     background-color: var(--color-fondo-principal);
     padding: 8px;
     padding-bottom: 24px;
 }
 
-.enemigos .list-e{
+.enemigos .list-e {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 20px;
@@ -223,52 +228,52 @@ body{
     overflow-y: auto;
 }
 
-.enemigos .list-e .caja3{
+.enemigos .list-e .caja3 {
     background-color: var(--color-texto-secundario);
     border-radius: 24px;
     padding: 14px;
     text-align: center;
     border: 2px solid var(--color-texto-primario);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-.enemigos .list-e .caja3 img{
+.enemigos .list-e .caja3 img {
     width: 28vh;
 }
 
-.enemigos .boton{
+.enemigos .boton {
     background-color: var(--color-fondo-principal);
 }
 
 /* Quinta escena - Combates */
 
-.batallas{
+.batallas {
     flex-direction: column;
     height: 100vh;
 }
 
-.batallas .menu4{
+.batallas .menu4 {
     background-color: var(--color-fondo-principal);
     padding: 8px;
     padding-bottom: 24px;
 }
 
-.batallas .boton{
+.batallas .boton {
     background-color: var(--color-fondo-secundario);
 }
 
-.batallas .combate img{
+.batallas .combate img {
     width: 20vw;
 }
 
-.batallas .combate{
+.batallas .combate {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--color-fondo-secundario);
 }
 
-.batallas .respuesta{
+.batallas .respuesta {
     background-color: var(--color-fondo-secundario);
     color: var(--color-texto-secundario);
     text-align: center;
@@ -276,22 +281,22 @@ body{
 
 /* Escena Final */
 
-.final{
+.final {
     flex-direction: column;
     height: 100vh;
 }
 
-.final .menu5{
+.final .menu5 {
     background-color: var(--color-fondo-principal);
     padding: 8px;
     padding-bottom: 24px;
 }
 
-.final .boton{
+.final .boton {
     background-color: var(--color-fondo-secundario);
 }
 
-.final .resultado{
+.final .resultado {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -301,7 +306,7 @@ body{
     color: var(--color-texto-secundario);
 }
 
-.final .resultado .titulo-f{
+.final .resultado .titulo-f {
     text-align: center;
 }
 
@@ -319,11 +324,11 @@ body{
     transition: all 0.3s ease;
 }
 
-.mercado .articulos .caja2.comprado button{
+.mercado .articulos .caja2.comprado button {
     background-color: rgb(250, 128, 114);
 }
 
-.mercado .articulos .caja2.comprado button:hover{
+.mercado .articulos .caja2.comprado button:hover {
     background-color: rgb(191, 81, 69);
 }
 
@@ -331,21 +336,52 @@ body{
 /* Restructuracion de imagenes */
 
 @media (max-width: 800px) {
-    .estadisticas .menu1 img{
+    .estadisticas .menu1 img {
         width: 30vw;
     }
 
-    .batallas .combate img{
+    .batallas .combate img {
         width: 40vw;
     }
 
-    .enemigos .list-e{
+    .enemigos .list-e {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
-    .compras-p .compras .obj{
+
+    .compras-p .compras .obj {
         width: 40px;
         height: 40px;
         background-color: var(--color-fondo-principal);
     }
+}
+
+/* --- ANIMACIÓN DE ENTRADA A LA BATALLA --- */
+
+@keyframes entrarIzquierda {
+    from {
+        opacity: 0;
+        transform: translateX(100vw);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes entrarDerecha {
+    from {
+        opacity: 0;
+        transform: translateX(-100vw);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.batallas .combate {
+    overflow: hidden;
 }
