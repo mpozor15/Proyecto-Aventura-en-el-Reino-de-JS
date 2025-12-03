@@ -145,6 +145,12 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Animacion de sombreado */
+
+.mercado .articulos .caja2:hover{
+    box-shadow: 6px 6px var(--color-texto-primario);
+}
+
 .mercado .articulos .caja2 img {
     width: 28vh;
 }
@@ -236,6 +242,11 @@ body {
     border: 2px solid var(--color-texto-primario);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
+.enemigos .list-e .caja3:hover{
+    box-shadow: 6px 6px var(--color-texto-primario);
+}
+
 
 .enemigos .list-e .caja3 img {
     width: 28vh;
