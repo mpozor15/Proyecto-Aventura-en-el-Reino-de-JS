@@ -7,9 +7,7 @@ export const listaEnemigos = [
     new Jefe("Dragón", "assets/dragon.png", 28, 150, 1.5) 
 ];
 
-/**
- * Pinta la lista de enemigos en el HTML (Solo visualización, SIN botones)
- */
+// Pinta la lista de enemigos en el HTML
 export function renderizarEnemigos(contenedor, callbackSeleccion) {
     contenedor.innerHTML = '';
 

@@ -346,7 +346,7 @@ body {
 
 /* Restructuracion de imagenes */
 
-@media (max-width: 800px) {
+@media (max-width: 720px) {
     .estadisticas .menu1 img {
         width: 30vw;
     }

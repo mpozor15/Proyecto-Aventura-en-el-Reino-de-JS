@@ -96,25 +96,18 @@ function prepararBatalla() {
     if(imgJugador) imgJugador.src = jugador.imagen;
     if(imgEnemigo) imgEnemigo.src = enemigo.imagen;
 
-    // --- Reinicio De Animacion ---
-    
-    // Apagamos la animación
+    // --- Reset De Animaciones ---
     imgJugador.style.animation = 'none';
     imgEnemigo.style.animation = 'none';
-
-    // Forzamos al navegador a "resetear" el motor gráfico (Reflow)
     imgJugador.offsetHeight; 
-
-    // Encendemos la animación directamente aquí
     imgJugador.style.animation = 'entrarIzquierda 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     imgEnemigo.style.animation = 'entrarDerecha 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-
-    // -------------------------------------
+    // --------------------------------------------------------
 
     // 3. Simulamos el combate
     const resultado = simularCombate(jugador, enemigo);
 
-    // 4. Mostramos resultados (MINIMALISTA)
+    // 4. Mostramos resultados CON CONSOLA (Log)
     const cajaRespuesta = document.querySelector('.respuesta');
     
     let mensajeTitulo = "";
@@ -135,9 +128,27 @@ function prepararBatalla() {
         botonTexto = "Ver Resultado Final";
     }
 
+    // --- HTML CON LA CONSOLA RESPONSIVE ---
     cajaRespuesta.innerHTML = `
-        <h2 style="font-size: 1.5rem; margin: 10px 0; color: ${resultado.jugadorGana ? '#D9C934' : 'red'}">${mensajeTitulo}</h2>
-        <p style="font-size: 1.1rem; margin: 5px 0;">Puntos ganados: <strong>${resultado.puntos}</strong></p>
+        <h2 style="font-size: 1.5rem; margin: 5px 0; color: ${resultado.jugadorGana ? '#D9C934' : 'red'}">${mensajeTitulo}</h2>
+        <p style="font-size: 1rem; margin: 2px 0;">Puntos ganados: <strong>${resultado.puntos}</strong></p>
+        
+        <div style="
+            text-align: left; 
+            max-height: 60px; 
+            overflow-y: auto; 
+            background: rgba(0,0,0,0.6); 
+            color: #eee; 
+            padding: 8px; 
+            margin-top: 8px; 
+            font-size: 0.85rem; 
+            border-radius: 5px; 
+            border: 1px solid #5A4224;
+            font-family: sans-serif;
+            line-height: 1.4;
+        ">
+            ${resultado.log.join('<br>')}
+        </div>
     `;
 
     // 5. Actualizamos el botón de abajo
