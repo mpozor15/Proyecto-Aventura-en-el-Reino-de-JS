@@ -396,3 +396,28 @@ body {
 .batallas .combate {
     overflow: hidden;
 }
+
+/* --- NOTIFICACIÓN DE COMPRA --- */
+
+.notificacion {
+    position: fixed;
+    top: -110px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background-color: #D9C934;
+    color: #2B1D0E;
+    padding: 15px 30px;
+    border-radius: 0 0 15px 15px;
+    border: 3px solid #5A4224;
+    font-weight: bold;
+    font-family: var(--fuente-web);
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+
+    transition: top 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.notificacion.mostrar {
+    top: 0;
+}

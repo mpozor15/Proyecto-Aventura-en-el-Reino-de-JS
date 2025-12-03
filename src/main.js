@@ -196,6 +196,20 @@ function actualizarEstadisticasUI() {
     document.querySelectorAll('#puntos').forEach(el => el.textContent = puntos);
 }
 
+// Funcion para el cartelido de compra
+function mostrarNotificacion() {
+    const notificacion = document.getElementById('notificacion-compra');
+    
+    // 1. Le ponemos la clase para que baje
+    notificacion.classList.add('mostrar');
+
+    // 2. Esperamos 2 segundos y se la quitamos para que suba
+    setTimeout(() => {
+        notificacion.classList.remove('mostrar');
+    }, 2000);
+}
+
+
 function cargarMercado() {
     const contenedorMercado = document.querySelector('.mercado .articulos');
     
@@ -212,6 +226,7 @@ function cargarMercado() {
             botonHTML.textContent = "Retirar";
             cajaHTML.classList.add('comprado');
             cajaHTML.classList.remove('retirado');
+            mostrarNotificacion();
         }
         pintarInventario();
     });
