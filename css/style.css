@@ -120,6 +120,8 @@ body {
 /* Segunda Escena - Mercado */
 
 .mercado .menu2 {
+    display: flex;
+    justify-content: space-between;
     background-color: var(--color-fondo-principal);
     padding: 8px;
     padding-bottom: 24px;

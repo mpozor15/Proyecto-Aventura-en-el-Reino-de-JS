@@ -1,13 +1,13 @@
 import { showScene } from './utils.js';
 import { Jugador } from './clases/jugador.js';
 import { renderizarMercado } from './modulos/mercado.js';
-import { PUNTUACION_BASE, VIDA_MAXIMA } from './constants.js';
+import { PUNTUACION_BASE, VIDA_MAXIMA, ORO_INICIAL } from './constants.js';
 import { renderizarEnemigos, listaEnemigos } from './modulos/enemigos.js';
 import { simularCombate } from './modulos/batalla.js';
 import { obtenerRango } from './modulos/ranking.js';
 
 // --- ESTADO GLOBAL ---
-const jugador = new Jugador("Cazador", "assets/prota.png", PUNTUACION_BASE, VIDA_MAXIMA);
+const jugador = new Jugador("Cazador", "assets/prota.png", PUNTUACION_BASE, VIDA_MAXIMA, ORO_INICIAL);
 let indiceEnemigoActual = 0; // Empezamos por el enemigo 0 (El primero)
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,7 +102,7 @@ function prepararBatalla() {
     imgJugador.offsetHeight; 
     imgJugador.style.animation = 'entrarIzquierda 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
     imgEnemigo.style.animation = 'entrarDerecha 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-    // --------------------------------------------------------
+    // ----------------------------
 
     // 3. Simulamos el combate
     const resultado = simularCombate(jugador, enemigo);
@@ -115,6 +115,10 @@ function prepararBatalla() {
 
     if (resultado.jugadorGana) {
         jugador.puntos += resultado.puntos;
+
+        jugador.oro += resultado.oroGanado;
+        actualizarEstadisticasUI();
+
         mensajeTitulo = "¡VICTORIA!";
         
         if (indiceEnemigoActual + 1 < listaEnemigos.length) {
@@ -132,6 +136,7 @@ function prepararBatalla() {
     cajaRespuesta.innerHTML = `
         <h2 style="font-size: 1.5rem; margin: 5px 0; color: ${resultado.jugadorGana ? '#D9C934' : 'red'}">${mensajeTitulo}</h2>
         <p style="font-size: 1rem; margin: 2px 0;">Puntos ganados: <strong>${resultado.puntos}</strong></p>
+        <p style="font-size: 1rem; color: gold; margin: 2px 0;">💰 Botín: +${resultado.oroGanado} €</p>
         
         <div style="
             text-align: left; 
@@ -205,15 +210,17 @@ function dispararConfetti() {
 }
 
 function mostrarPantallaFinal() {
-    dispararConfetti();
+    jugador.puntos += jugador.oro;
+
+    dispararConfetti(); 
 
     const contenedor = document.querySelector('.final .resultado');
     const rango = obtenerRango(jugador.puntos); 
     
-    // HTML Limpio igual que la foto
     contenedor.innerHTML = `
-        <h1 class="titulo-f">El Jugador ha logrado ser un ${rango}</h1>
-        <h2 class="puntos-f">Puntos totales: ${jugador.puntos}</h2>
+        <h2 class="titulo-final">El Jugador ha logrado ser un ${rango}</h2>
+        <p class="puntos-final">Puntos totales: ${jugador.puntos}</p>
+        <p style="font-size: 0.9rem; color: #aaa;">(Incluye bonificación por oro restante)</p>
     `;
     
     pintarInventario();
@@ -224,11 +231,13 @@ function actualizarEstadisticasUI() {
     const defensa = jugador.obtenerDefensaTotal();
     const vida = jugador.obtenerVidaTotal();
     const puntos = jugador.puntos;
+    const oro = jugador.oro;
 
     document.querySelectorAll('#ataque').forEach(el => el.textContent = ataque);
     document.querySelectorAll('#defensa').forEach(el => el.textContent = defensa);
     document.querySelectorAll('#vida').forEach(el => el.textContent = vida);
     document.querySelectorAll('#puntos').forEach(el => el.textContent = puntos);
+    document.querySelectorAll('#oro').forEach(el => el.textContent = oro);
 }
 
 // Funcion para el cartelido de compra
@@ -249,20 +258,51 @@ function cargarMercado() {
     const contenedorMercado = document.querySelector('.mercado .articulos');
     
     renderizarMercado(contenedorMercado, jugador.inventario, (producto, botonHTML, cajaHTML) => {
-        // LOGICA DE COMPRA/DEVOLUCION (Igual que la que tenías perfecta)
+        
         if (jugador.tieneObjeto(producto.nombre)) {
+            // CASO: DEVOLVER (RETIRAR)
+            // 1. Recuperamos el dinero (Reembolso)
+            jugador.oro += producto.precio; 
+
             jugador.eliminarDelInventario(producto.nombre);
+            
+            // Visual
             botonHTML.textContent = "Añadir";
+            botonHTML.style.backgroundColor = ""; 
             cajaHTML.classList.remove('comprado');
             cajaHTML.classList.add('retirado');
+            
+            // Actualizamos el contador de oro en pantalla al instante
+            actualizarEstadisticasUI(); 
+
         } else {
-            const nuevoItem = producto.clonar();
-            jugador.agregarInventario(nuevoItem);
-            botonHTML.textContent = "Retirar";
-            cajaHTML.classList.add('comprado');
-            cajaHTML.classList.remove('retirado');
-            mostrarNotificacion();
+            // CASO: INTENTAR COMPRAR
+            
+            if (jugador.oro >= producto.precio) {
+                // SI TIENE DINERO:
+                
+                // 1. Restamos el dinero
+                jugador.oro -= producto.precio;
+
+                // 2. Lógica normal de compra
+                const nuevoItem = producto.clonar();
+                jugador.agregarInventario(nuevoItem);
+
+                // Visual
+                botonHTML.textContent = "Retirar";
+                botonHTML.style.backgroundColor = "salmon"; 
+                cajaHTML.classList.add('comprado');
+                cajaHTML.classList.remove('retirado');
+                mostrarNotificacion();
+
+                // Actualizamos el contador de oro
+                actualizarEstadisticasUI();
+
+            } else {
+                alert("🚫 ¡No tienes suficiente oro para comprar esto!");
+            }
         }
+        
         pintarInventario();
     });
 }

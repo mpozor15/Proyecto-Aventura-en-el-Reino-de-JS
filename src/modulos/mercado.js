@@ -1,12 +1,12 @@
 import { Producto } from '../clases/producto.js';
 
 export const inventarioMercado = [
-    new Producto("Manzana", "assets/manzana.png", 40, "comun", "consumible", 10),
-    new Producto("Armadura de Cuero", "assets/armadura.png", 180, "rara", "armadura", 6),
-    new Producto("Hacha", "assets/hacha.png", 120, "comun", "arma", 8),
-    new Producto("Bota", "assets/bota.png", 120, "comun", "armadura", 3),
-    new Producto("Arco", "assets/arco.png", 200, "epica", "arma", 10),
-    new Producto("Escudo", "assets/escudo.png", 220, "rara", "armadura", 10)
+    new Producto("Manzana", "assets/manzana.png", 50, "comun", "consumible", 10),
+    new Producto("Armadura de Cuero", "assets/armadura.png", 100, "rara", "armadura", 6),
+    new Producto("Hacha", "assets/hacha.png", 80, "comun", "arma", 8),
+    new Producto("Bota", "assets/bota.png", 80, "comun", "armadura", 3),
+    new Producto("Arco", "assets/arco.png", 80, "epica", "arma", 10),
+    new Producto("Escudo", "assets/escudo.png", 120, "rara", "armadura", 10)
 ];
 
 // AHORA RECIBIMOS UN 3º PARAMETRO: "itemsJugador" (el array de inventario)

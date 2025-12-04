@@ -1,10 +1,14 @@
 export class Jugador {
-    constructor(nombre, imagen, puntos, vida) {
+    constructor(nombre, imagen, puntos, vida, oro) {
         this.nombre = nombre;
         this.imagen = imagen;
         this.puntos = puntos;
         this.vida = vida;
+        this.oro = oro;
         this.inventario = []; 
+
+        this.ataqueBase = 0;
+        this.defensaBase = 0;
     }
 
     agregarInventario(producto) {
