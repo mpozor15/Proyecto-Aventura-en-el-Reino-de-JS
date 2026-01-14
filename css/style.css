@@ -12,7 +12,6 @@
 
 .scene.active {
     display: flex;
-    animation: cambioescena 1s ease-in-out;
 }
 
 @keyframes cambioescena {
@@ -120,8 +119,6 @@ body {
 /* Segunda Escena - Mercado */
 
 .mercado .menu2 {
-    display: flex;
-    justify-content: space-between;
     background-color: var(--color-fondo-principal);
     padding: 8px;
     padding-bottom: 24px;
@@ -422,4 +419,306 @@ body {
 
 .notificacion.mostrar {
     top: 0;
+}
+
+/* Defensa */
+/* Monedero */
+
+/* --- MONEDERO FLOTANTE --- */
+/* --- MONEDERO FLOTANTE --- */
+/* --- MONEDERO FLOTANTE (ESTILO FINAL) --- */
+#contenedor-monedero {
+    position: fixed;
+    
+    /* NUEVAS COORDENADAS: */
+    bottom: 1%; 
+    left: 2%;
+    
+    z-index: 1000;
+    width: 100px;
+    
+    /* Animación de entrada */
+    transform: translateX(-200px);
+    animation: entradaLateral 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+#contenedor-monedero img {
+    width: 100%;
+    display: block;
+    /* IMPORTANTE: Sin animación aquí para que no lata */
+}
+
+#oro-flotante {
+    /* Posicionamos el número justo en la barriga del saco */
+    position: absolute;
+    top: 55%; 
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado */
+    
+    /* Estilo de letra */
+    color: #3e2723; /* Marrón oscuro */
+    font-family: var(--fuente-web);
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px rgba(255,255,255,0.3);
+    
+    border: none;
+    background: none;
+}
+
+/* Definición de la animación: De -200px a 0px */
+@keyframes entradaLateral {
+    from {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0); /* Se queda en su sitio */
+        opacity: 1;
+    }
+}
+
+
+/* Pantalla final 2 */
+
+.final2{
+    flex-direction: column;
+    height: 100vh;
+}
+
+.final2 .menu6{
+    background-color: var(--color-fondo-principal);
+    padding: 8px;
+    padding-bottom: 24px;
+}
+
+.tabla-f-p {
+    max-height: 300px; /* Altura máxima antes de que salga barra de scroll */
+    overflow-y: auto;  /* Activa el scroll vertical */
+    width: 80%;
+    margin: 20px auto; /* Centrado y separado del título */
+    
+    /* Borde grueso y fondo base */
+    border: 4px solid var(--color-fondo-secundario); /* Marrón oscuro */
+    background-color: #fdfdfd; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Sombra para que flote */
+    border-radius: 5px;
+}
+
+/* 2. La tabla en sí */
+.tabla-f {
+    width: 100%;
+    border-collapse: collapse; /* Quita espacios entre bordes */
+}
+
+/* 3. Cabecera Fija (Sticky) - Fondo Marrón Oscuro */
+.tabla-f th {
+    position: sticky; 
+    top: 0; 
+    z-index: 10;
+    
+    /* Estilo Visual */
+    background-color: var(--color-fondo-secundario); /* El mismo marrón que tus botones */
+    color: var(--color-texto-secundario); /* Texto claro (blanco/beige) */
+    font-family: var(--fuente-web); /* Tu fuente "Cinzel" */
+    font-size: 1.2rem;
+    padding: 15px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* 4. Celdas normales */
+.tabla-f td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    font-family: var(--fuente-cuerpo); /* Fuente "Lora" */
+    font-weight: bold;
+    color: var(--color-texto-primario);
+}
+
+/* 5. Filas Pares: Color Crema/Marrón clarito (Zebra) */
+.tabla-f tbody tr:nth-child(even) {
+    background-color: #D1B48C; /* El mismo color que '--color-fondo-principal' */
+}
+
+/* 6. Filas Impares: Blanco (o casi blanco) */
+.tabla-f tbody tr:nth-child(odd) {
+    background-color: #fff8f0; 
+}
+
+/* 7. Efecto Hover: Se ilumina en amarillo al pasar el ratón */
+.tabla-f tbody tr:hover {
+    background-color: var(--color-acento-boton); /* Tu amarillo dorado */
+    color: var(--color-texto-primario);
+    cursor: default;
+    transition: background-color 0.2s ease;
+}
+
+/* Ajuste de la barra de scroll para que sea más bonita (Webkit) */
+.tabla-f-p::-webkit-scrollbar {
+    width: 10px;
+}
+.tabla-f-p::-webkit-scrollbar-track {
+    background: #D1B48C;
+}
+.tabla-f-p::-webkit-scrollbar-thumb {
+    background: var(--color-texto-primario);
+    border-radius: 5px;
+}
+
+/* Formulario de creación de personaje */
+
+.formulario-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+}
+
+/* Cada grupo label + input */
+.campo {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.campo label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--color-texto-primario);
+}
+
+.campo input {
+    padding: 10px;
+    border: none;
+    border-radius: 0; /* Bordes cuadrados como en el video */
+    font-family: var(--fuente-cuerpo);
+    font-size: 1rem;
+    outline: none;
+    background-color: white; /* Fondo blanco puro */
+}
+
+/* Estilo para el botón específico de esta pantalla */
+.btn-estilo {
+    background-color: var(--color-acento-boton);
+    border: none;
+    padding: 10px 30px;
+    font-family: var(--fuente-web);
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    color: var(--color-texto-primario);
+}
+
+.btn-estilo:hover {
+    background-color: var(--color-acento-boton-hover);
+}
+
+/* Ajustes para el formulario */
+
+#pantalla-Formulario {
+    background-color: var(--color-fondo-principal); /* El color canela/marrón claro */
+    display: flex; /* Flex para centrar */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la pantalla */
+    text-align: center;
+}
+
+/* 2. Título "Aventura en el Reino de JS" */
+#pantalla-Formulario h1 {
+    font-family: var(--fuente-web);
+    color: var(--color-texto-primario); /* Marrón oscuro */
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* 3. El contenedor del formulario */
+#registro-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre elementos */
+    width: 300px; /* Ancho fijo como en el vídeo */
+}
+
+/* 4. Etiquetas (Nombre, Ataque...) */
+#registro-stats label {
+    font-family: var(--fuente-web); /* Tipografía del juego */
+    font-weight: bold;
+    color: var(--color-texto-primario);
+    text-align: left; /* Alineado a la izquierda del input */
+    margin-bottom: -10px; /* Pegadito al input */
+    margin-top: 10px;
+}
+
+/* 5. Los cuadros de texto (Inputs) */
+#registro-stats input {
+    padding: 10px;
+    border: none; /* Sin borde gris feo */
+    background-color: white; /* Blanco puro */
+    font-family: var(--fuente-cuerpo);
+    font-size: 1rem;
+    color: #333;
+    outline: none; /* Quitar borde azul al clicar */
+}
+
+/* 6. El Botón Continuar */
+#registro-stats button {
+    margin-top: 20px;
+    padding: 12px 40px;
+    background-color: var(--color-acento-boton); /* Amarillo/Dorado */
+    color: var(--color-texto-primario);
+    font-family: var(--fuente-web);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#registro-stats button:hover {
+    background-color: var(--color-acento-boton-hover); /* Oscurecer al pasar ratón */
+}
+
+/* --- ANIMACIÓN LLUVIA DE MONEDAS --- */
+
+.lluvia-monedas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2000;
+    display: none;
+}
+
+.lluvia-monedas.activa {
+    display: block; 
+}
+
+.lluvia-monedas img {
+    position: absolute;
+    top: -100px; 
+    width: 100px;
+}
+
+.lluvia-monedas.activa img {
+    animation: CaerMoneda 1.5s ease-out forwards;
+}
+
+/* NUEVA ANIMACIÓN: Caen al medio, rotan y se desvanecen */
+@keyframes CaerMoneda {
+    0% {
+        top: -100px;           
+        transform: rotateY(0deg);
+        opacity: 1;            
+    }
+    100% {
+        top: 50vh;             
+        transform: rotateY(360deg); 
+        opacity: 0;            
+    }
 }

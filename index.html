@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,12 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
     <script defer type="module" src="src/main.js"></script>
 </head>
+
 <body>
+    <div id="contenedor-monedero">
+        <img src="assets/monedero.png" alt="Monedero">
+        <span id="oro-flotante">0</span>
+    </div>
 
     <div id="notificacion-compra" class="notificacion">
         ✅ ¡Objeto añadido a la mochila!
@@ -16,31 +22,33 @@
 
     <main class="padre">
 
-        <!-- Formulario -->
-        <section id="pantalla-Formulario" class="formulario scene" >
+        <section id="pantalla-Formulario" class="formulario scene active">
+
+            <h1>Aventura en el Reino de JS</h1>
+
             <form id="registro-stats">
+                <label>Nombre:</label>
+                <input type="text" id="crear-nombre" maxlength="20" placeholder="Ej: Elias" required />
 
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" maxlength="20" required/>
+                <label>Ataque:</label>
+                <input type="number" id="crear-ataque" value="0" min="0" />
 
-                <label for="ataque">Ataque:</label>
-                <input type="number" id="ataque" required/>
+                <label>Defensa:</label>
+                <input type="number" id="crear-defensa" value="0" min="0" />
 
-                <label for="defensa">Defensa:</label>
-                <input type="number" id="defensa" required/>
+                <label>Vida:</label>
+                <input type="number" id="crear-vida" value="100" min="100" />
 
-                <label for="vida">Vida:</label>
-                <input type="number" id="vida" placeholder="100" required/>
+                <p id="msg-error" style="color: red; font-weight: bold;"></p>
 
                 <article class="boton">
-                    <button id="" >Continuar</button>
+                    <button id="btn-comenzar-juego" type="button">Continuar</button>
                 </article>
             </form>
         </section>
 
-
         <!-- Estadisticas -->
-        <section id="pantalla-estadisticas" class="estadisticas scene active">
+        <section id="pantalla-estadisticas" class="estadisticas scene">
 
             <article class="menu1">
                 <img src="assets/prota.png" />
@@ -53,12 +61,11 @@
                     <div class="caja">Defensa: <span id="defensa">0</span></div>
                     <div class="caja">Vida: <span id="vida">100</span></div>
                     <div class="caja">Puntos: <span id="puntos">0</span></div>
-                    <div class="caja" style="color: gold;" >Oro: <span id="oro">0</span> €</div>
                 </article>
             </div>
 
             <article class="boton">
-                <button id="btn-mercado" >Continuar</button>
+                <button id="btn-mercado">Continuar</button>
             </article>
 
         </section>
@@ -69,7 +76,6 @@
 
             <article class="menu2">
                 <h1>Mercado negro</h1>
-                <h1 style="color: gold;" >Oro: <span id="oro">0</span> €</h1>
             </article>
 
             <article class="articulos">
@@ -77,7 +83,7 @@
             </article>
 
             <article class="boton">
-                <button id="btn-a" >Comprar</button>
+                <button id="btn-a">Comprar</button>
             </article>
 
             <div class="compras-p">
@@ -111,12 +117,12 @@
             </div>
 
             <article class="boton">
-                <button id="btn-enemigos" >Continuar</button>
+                <button id="btn-enemigos">Continuar</button>
             </article>
 
             <div class="compras-p">
                 <article class="compras">
-                    
+
                 </article>
             </div>
 
@@ -134,7 +140,7 @@
             </article>
 
             <article class="boton">
-                <button id="btn-batallas" >Continuar</button>
+                <button id="btn-batallas">Continuar</button>
             </article>
 
         </section>
@@ -163,12 +169,12 @@
             </article>
 
             <article class="boton">
-                <button id="btn-final" >Continuar</button>
+                <button id="btn-final">Continuar</button>
             </article>
 
             <div class="compras-p">
                 <article class="compras">
-                    
+
                 </article>
             </div>
 
@@ -186,17 +192,54 @@
             </article>
 
             <article class="boton">
-                <button id="btn-reiniciar" >Reiniciar</button>
+                <button id="btn-reiniciar">Tabla Final</button>
             </article>
 
             <div class="compras-p">
                 <article class="compras">
-                    
+
                 </article>
             </div>
 
         </section>
+
+        <!-- Final 2 Tabla -->
+        <section id="pantalla-final2" class="final2 scene">
+
+            <article class="menu6">
+                <h1>Tabla Final</h1>
+            </article>
+
+            <article class="tabla-f-p">
+                <table class="tabla-f">
+                    <thead>
+                        <tr class="cabecera">
+                            <th>Nombre</th>
+                            <th>Puntuación</th>
+                            <th>Monedas</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="cuerpo-tabla-ranking">
+                    </tbody>
+                </table>
+            </article>
+
+
+            <article class="boton">
+                <button id="btn-reiniciar2">Reiniciar</button>
+            </article>
+        </section>
     </main>
 
 </body>
+
+<div id="contenedor-lluvia" class="lluvia-monedas">
+    <img src="assets/moneda.png" style="left: 25%">
+
+    <img src="assets/moneda.png" style="left: 50%">
+
+    <img src="assets/moneda.png" style="left: 75%">
+</div>
+
 </html>
